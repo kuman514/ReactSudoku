@@ -1,0 +1,39 @@
+{
+  "name": "vite-sudoku",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite --open --host",
+    "lint": "yarn eslint src/**/*.{ts,tsx}",
+    "test": "vitest",
+    "build": "tsc --noEmit && yarn lint && yarn test --watch=false && vite build",
+    "preview": "vite preview"
+  },
+  "packageManager": "yarn@4.4.1",
+  "dependencies": {
+    "@types/react-is": "^18.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-is": "^18.3.1",
+    "vite-plugin-svgr": "^4.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.10.0",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.0.1",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "eslint": "^9.10.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-react": "^7.35.2",
+    "globals": "^15.9.0",
+    "jsdom": "^25.0.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.5.0",
+    "vite": "^5.4.3"
+  }
+}
