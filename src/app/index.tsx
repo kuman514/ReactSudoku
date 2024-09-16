@@ -1,34 +1,153 @@
 import { DigitButton } from '^/features/digit-button';
 import { ModeButton } from '^/features/mode-button';
+import { VariableTile } from '^/features/variable-tile';
 import { Digit } from '^/shared/digit/types';
 import { useState } from 'react';
 
+function memoDigit({
+  row,
+  col,
+  digit,
+  memoTile,
+}: {
+  row: number;
+  col: number;
+  digit: Digit;
+  memoTile: Digit[][][];
+}) {
+  const newMemoTile: Digit[][][] = JSON.parse(JSON.stringify(memoTile));
+  switch (digit) {
+    case 0:
+      newMemoTile[row][col] = [];
+      break;
+    default: {
+      const memoIndex = newMemoTile[row][col].findIndex(
+        (digitToFind) => digitToFind === digit
+      );
+      if (memoIndex === -1) {
+        newMemoTile[row][col].push(digit);
+      } else {
+        newMemoTile[row][col].splice(memoIndex, 1);
+      }
+      break;
+    }
+  }
+  return newMemoTile;
+}
+
+function inputDigit({
+  row,
+  col,
+  digit,
+  answerTile,
+}: {
+  row: number;
+  col: number;
+  digit: Digit;
+  answerTile: Digit[][];
+}) {
+  const newAnswerTile: Digit[][] = JSON.parse(JSON.stringify(answerTile));
+  newAnswerTile[row][col] = digit;
+  return newAnswerTile;
+}
+
 export function App() {
   const [mode, setMode] = useState<'answer' | 'memo'>('answer');
-  const [digitActiveStatus, setDigitActiveStatus] = useState<
-    Record<Digit, boolean>
-  >({
-    0: false,
-    1: false,
-    2: false,
-    3: false,
-    4: false,
-    5: false,
-    6: false,
-    7: false,
-    8: false,
-    9: false,
+
+  const [selectedPos, setSelectedPos] = useState<{
+    row: number;
+    col: number;
+  }>({
+    row: -1,
+    col: -1,
   });
 
-  function handleOnClickDigitButton(clickedDigit: Digit) {
-    setDigitActiveStatus({
-      ...digitActiveStatus,
-      [clickedDigit]: !digitActiveStatus[clickedDigit],
-    });
+  const [answerTile, setAnswerTile] = useState<Digit[][]>([
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0, 0, 0, 0, 0],
+  ]);
+
+  const [memoTile, setMemoTile] = useState<Digit[][][]>([
+    [[], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], []],
+    [[], [], [], [], [], [], [], [], []],
+  ]);
+
+  function handleOnClickDigitButton(digit: Digit) {
+    if (selectedPos.row < 0 || selectedPos.col < 0) {
+      return;
+    }
+
+    switch (mode) {
+      case 'answer':
+        setAnswerTile(
+          inputDigit({
+            ...selectedPos,
+            digit,
+            answerTile,
+          })
+        );
+        break;
+      case 'memo':
+        setMemoTile(
+          memoDigit({
+            ...selectedPos,
+            digit,
+            memoTile,
+          })
+        );
+        break;
+      default:
+        break;
+    }
   }
 
   return (
     <main>
+      <div
+        style={{
+          width: 300,
+          height: 300,
+          display: 'grid',
+          gridTemplateColumns: 'repeat(9, 1fr)',
+          gridTemplateRows: 'repeat(9, 1fr)',
+        }}
+      >
+        {Array.from({ length: 81 }).map((_, index) => {
+          const row = Math.floor(index / 9);
+          const col = index % 9;
+          return (
+            <VariableTile
+              key={`${row},${col}`}
+              answerDigit={answerTile[row][col]}
+              memoDigits={memoTile[row][col]}
+              selectedRow={selectedPos.row}
+              selectedCol={selectedPos.col}
+              curRow={row}
+              curCol={col}
+              onClick={() => {
+                setSelectedPos({
+                  row,
+                  col,
+                });
+              }}
+            />
+          );
+        })}
+      </div>
       <div
         style={{
           width: 300,
@@ -77,7 +196,28 @@ export function App() {
               <DigitButton
                 key={`digit-button-${digit}`}
                 digit={digit}
-                isActive={digitActiveStatus[digit]}
+                isActive={(() => {
+                  if (
+                    selectedPos.row < 0 ||
+                    selectedPos.col < 0 ||
+                    digit === 0
+                  ) {
+                    return false;
+                  }
+
+                  switch (mode) {
+                    case 'answer':
+                      return (
+                        answerTile[selectedPos.row][selectedPos.col] === digit
+                      );
+                    case 'memo':
+                      return memoTile[selectedPos.row][
+                        selectedPos.col
+                      ].includes(digit);
+                    default:
+                      return false;
+                  }
+                })()}
                 onClick={handleOnClickDigitButton}
               />
             )

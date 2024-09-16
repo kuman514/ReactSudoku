@@ -1,0 +1,223 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`VariableTile > should be half-highlighted when it is not selected but in the same horizontal or vertical line or the same square 1`] = `
+<div>
+  <button
+    aria-label="tile-3-5"
+    class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-xo8zr9-MuiButtonBase-root-MuiButton-root"
+    tabindex="0"
+    type="button"
+  >
+    <div
+      style="width: 100%; height: 100%; display: grid; grid-template-rows: 1fr 1fr 1fr; grid-template-columns: 1fr 1fr 1fr; background-color: rgba(255, 255, 255, 0.314);"
+    >
+      <div
+        style="font-size: 0.3rem;"
+      />
+      <div
+        style="font-size: 0.3rem;"
+      >
+        2
+      </div>
+      <div
+        style="font-size: 0.3rem;"
+      />
+      <div
+        style="font-size: 0.3rem;"
+      >
+        4
+      </div>
+      <div
+        style="font-size: 0.3rem;"
+      />
+      <div
+        style="font-size: 0.3rem;"
+      />
+      <div
+        style="font-size: 0.3rem;"
+      >
+        7
+      </div>
+      <div
+        style="font-size: 0.3rem;"
+      >
+        8
+      </div>
+      <div
+        style="font-size: 0.3rem;"
+      />
+    </div>
+  </button>
+  <button
+    aria-label="tile-7-5"
+    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary css-1odmu20-MuiButtonBase-root-MuiButton-root"
+    tabindex="0"
+    type="button"
+  >
+    <div
+      style="width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.314); display: flex; justify-content: center; align-items: center;"
+    >
+      7
+    </div>
+  </button>
+  <button
+    aria-label="tile-1-3"
+    class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary css-1odmu20-MuiButtonBase-root-MuiButton-root"
+    tabindex="0"
+    type="button"
+  >
+    <div
+      style="width: 100%; height: 100%; display: grid; grid-template-rows: 1fr 1fr 1fr; grid-template-columns: 1fr 1fr 1fr; background-color: rgba(255, 255, 255, 0.314);"
+    >
+      <div
+        style="font-size: 0.3rem;"
+      />
+      <div
+        style="font-size: 0.3rem;"
+      >
+        2
+      </div>
+      <div
+        style="font-size: 0.3rem;"
+      />
+      <div
+        style="font-size: 0.3rem;"
+      >
+        4
+      </div>
+      <div
+        style="font-size: 0.3rem;"
+      />
+      <div
+        style="font-size: 0.3rem;"
+      />
+      <div
+        style="font-size: 0.3rem;"
+      >
+        7
+      </div>
+      <div
+        style="font-size: 0.3rem;"
+      >
+        8
+      </div>
+      <div
+        style="font-size: 0.3rem;"
+      />
+    </div>
+  </button>
+</div>
+`;
+
+exports[`VariableTile > should be highlighted when it is selected 1`] = `
+<button
+  aria-label="tile-3-4"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-xo8zr9-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <div
+    style="width: 100%; height: 100%; display: grid; grid-template-rows: 1fr 1fr 1fr; grid-template-columns: 1fr 1fr 1fr; background-color: rgb(32, 204, 32);"
+  >
+    <div
+      style="font-size: 0.3rem;"
+    />
+    <div
+      style="font-size: 0.3rem;"
+    >
+      2
+    </div>
+    <div
+      style="font-size: 0.3rem;"
+    />
+    <div
+      style="font-size: 0.3rem;"
+    >
+      4
+    </div>
+    <div
+      style="font-size: 0.3rem;"
+    />
+    <div
+      style="font-size: 0.3rem;"
+    />
+    <div
+      style="font-size: 0.3rem;"
+    >
+      7
+    </div>
+    <div
+      style="font-size: 0.3rem;"
+    >
+      8
+    </div>
+    <div
+      style="font-size: 0.3rem;"
+    />
+  </div>
+</button>
+`;
+
+exports[`VariableTile > should show memo when it does not have answer digit 1`] = `
+<button
+  aria-label="tile-0-0"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-xo8zr9-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <div
+    style="width: 100%; height: 100%; display: grid; grid-template-rows: 1fr 1fr 1fr; grid-template-columns: 1fr 1fr 1fr; background-color: transparent;"
+  >
+    <div
+      style="font-size: 0.3rem;"
+    />
+    <div
+      style="font-size: 0.3rem;"
+    >
+      2
+    </div>
+    <div
+      style="font-size: 0.3rem;"
+    />
+    <div
+      style="font-size: 0.3rem;"
+    >
+      4
+    </div>
+    <div
+      style="font-size: 0.3rem;"
+    />
+    <div
+      style="font-size: 0.3rem;"
+    />
+    <div
+      style="font-size: 0.3rem;"
+    >
+      7
+    </div>
+    <div
+      style="font-size: 0.3rem;"
+    >
+      8
+    </div>
+    <div
+      style="font-size: 0.3rem;"
+    />
+  </div>
+</button>
+`;
+
+exports[`VariableTile > should show one number when it has answer digit 1`] = `
+<button
+  aria-label="tile-0-0"
+  class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-xo8zr9-MuiButtonBase-root-MuiButton-root"
+  tabindex="0"
+  type="button"
+>
+  <div
+    style="width: 100%; height: 100%; background-color: transparent; display: flex; justify-content: center; align-items: center;"
+  >
+    3
+  </div>
+</button>
+`;
