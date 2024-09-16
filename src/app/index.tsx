@@ -36,9 +36,8 @@ export function App() {
       >
         <div
           style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
             alignItems: 'center',
           }}
         >
