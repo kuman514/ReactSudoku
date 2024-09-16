@@ -1,6 +1,7 @@
+import { Digit } from '^/shared/digit/types';
 import { UIButton } from '^/shared/ui-button';
+
 import { GRID_AREA } from './grid-area';
-import { Digit } from './types';
 
 interface Props {
   digit: Digit;

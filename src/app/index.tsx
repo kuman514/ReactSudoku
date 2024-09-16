@@ -1,6 +1,6 @@
 import { DigitButton } from '^/features/digit-button';
-import { Digit } from '^/features/digit-button/types';
 import { ModeButton } from '^/features/mode-button';
+import { Digit } from '^/shared/digit/types';
 import { useState } from 'react';
 
 export function App() {
