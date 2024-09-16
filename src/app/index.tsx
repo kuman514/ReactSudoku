@@ -1,8 +1,10 @@
 import { DigitButton } from '^/features/digit-button';
 import { Digit } from '^/features/digit-button/types';
+import { ModeButton } from '^/features/mode-button';
 import { useState } from 'react';
 
 export function App() {
+  const [mode, setMode] = useState<'answer' | 'memo'>('answer');
   const [digitActiveStatus, setDigitActiveStatus] = useState<
     Record<Digit, boolean>
   >({
@@ -30,26 +32,57 @@ export function App() {
       <div
         style={{
           width: 300,
-          display: 'grid',
-          gridTemplateAreas: `
+        }}
+      >
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            alignItems: 'center',
+          }}
+        >
+          <ModeButton
+            modeLabel="answer"
+            isActive={mode === 'answer'}
+            onClick={() => {
+              setMode('answer');
+            }}
+          >
+            Answer
+          </ModeButton>
+          <ModeButton
+            modeLabel="memo"
+            isActive={mode === 'memo'}
+            onClick={() => {
+              setMode('memo');
+            }}
+          >
+            Memo
+          </ModeButton>
+        </div>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateAreas: `
             "a b c"
             "d e f"
             "g h i"
             ". j ."
           `,
-          alignItems: 'center',
-        }}
-      >
-        {([1, 2, 3, 4, 5, 6, 7, 8, 9, 0] satisfies Digit[]).map(
-          (digit: Digit) => (
-            <DigitButton
-              key={`digit-button-${digit}`}
-              digit={digit}
-              isActive={digitActiveStatus[digit]}
-              onClick={handleOnClickDigitButton}
-            />
-          )
-        )}
+            alignItems: 'center',
+          }}
+        >
+          {([1, 2, 3, 4, 5, 6, 7, 8, 9, 0] satisfies Digit[]).map(
+            (digit: Digit) => (
+              <DigitButton
+                key={`digit-button-${digit}`}
+                digit={digit}
+                isActive={digitActiveStatus[digit]}
+                onClick={handleOnClickDigitButton}
+              />
+            )
+          )}
+        </div>
       </div>
     </main>
   );
